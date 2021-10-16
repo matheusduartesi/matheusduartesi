@@ -1,0 +1,82 @@
+import pyautogui
+import pyperclip
+import time
+
+link = "https://drive.google.com/drive/my-drive"
+
+pyautogui.pause = 3
+pyautogui.press("winleft")
+time.sleep(2)
+pyautogui.write("chrome")
+time.sleep(2)
+pyautogui.press("enter")
+
+time.sleep(5)
+
+pyautogui.alert("Vai começar, aperte OK e não mexa em nada")
+pyperclip.copy(link)
+pyautogui.hotkey("ctrl", "v")
+pyautogui.press("enter")
+
+time.sleep(15)
+
+pyautogui.click(838, 622, clicks=2)
+time.sleep(6)
+pyautogui.click(366, 386)
+time.sleep(6)
+pyautogui.click(1155, 196)
+time.sleep(6)
+pyautogui.click(979, 595)
+
+time.sleep(20)
+
+
+
+
+
+
+import pandas as pd
+
+df = pd.read_excel(r"C:\Users\matheus\Downloads\Vendas - Dez.xlsx")
+display(df)
+
+faturamento = df['Valor Final'].sum()
+qtde_produtos = df['Quantidade'].sum()
+
+pyautogui.hotkey('ctrl', 't')
+pyautogui.write('mail.google.com')
+pyautogui.press('enter')
+time.sleep(20)
+
+pyautogui.click(74, 204)
+
+time.sleep(30)
+
+pyautogui.write('matheus.duarte.si@hotmail.com')
+pyautogui.press('tab')
+pyautogui.press('tab')
+assunto = 'Relatório de Vendas de Ontem'
+pyperclip.copy(assunto)
+pyautogui.hotkey('ctrl', 'v')
+time.sleep(3)
+pyautogui.press('tab')
+texto = f'''
+Prezados, bom dia
+
+O faturamento de ontem foi de: R${faturamento:,.2f}
+A quantidade de produtos foi de: {qtde_produtos:,}
+
+Abs
+Matheus Duarte'''
+pyperclip.copy(texto)
+pyautogui.hotkey('ctrl','v')
+time.sleep(3)
+pyautogui.hotkey('ctrl','enter')
+
+
+
+
+
+
+
+
